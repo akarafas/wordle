@@ -6,14 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit {
+  word: string = "wordl";
   constructor() {
   }
 
   ngOnInit(): void {
-//     initGrid();
-  }
-// need to make a grid with 30 blocks
-/*   public initGrid() {
 
-  } */
+  }
+      onKeypressEvent(event: any){
+         event.target.value = event.target.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
+         console.log(event.target.value);
+//          this.letter = event.target.value;
+      }
+
 }

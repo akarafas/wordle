@@ -2,3 +2,17 @@
   float: right;
   margin-right: 50px;
 }
+.input {
+  margin-left: 50px;
+  visibility: visible;
+}
+.row {
+margin-left: 32%;
+}
+.col {
+  display: contents;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}

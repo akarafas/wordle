@@ -9,8 +9,8 @@ export class BlockComponent implements OnInit {
   letter: string;
   state: string;
   constructor() {
-    this.letter = "e";
-    this.state = "empty"
+    this.letter = "";
+    this.state = "empty";
   }
 
   ngOnInit(): void {
@@ -21,4 +21,11 @@ export class BlockComponent implements OnInit {
   setBlock(BlockComponent block) {
     this.BlockComponent = block;
   } */
+  setLetter (_letter: string) {
+    this.letter = _letter;
+  }
+  setState (_state: string) {
+    this.state = _state;
+  }
+
 }
