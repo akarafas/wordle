@@ -6,12 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit {
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
-
+//     initGrid();
   }
 // need to make a grid with 30 blocks
+/*   public initGrid() {
 
+  } */
 }

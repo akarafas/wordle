@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./block.component.css']
 })
 export class BlockComponent implements OnInit {
-
-  constructor() { }
+  letter: string;
+  state: string;
+  constructor() {
+    this.letter = "e";
+    this.state = "empty"
+  }
 
   ngOnInit(): void {
   }
-
+/*   getBlock() {
+    return BlockComponent;
+  }
+  setBlock(BlockComponent block) {
+    this.BlockComponent = block;
+  } */
 }
