@@ -1,56 +1,68 @@
 import { Component, OnInit } from '@angular/core';
 import { BlockComponent } from "C:/Users/Angel/IdeaProjects/wordle/wordle/src/app/grid/block/block.component";
+import { LetterState } from '../Enums/LetterState';
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit {
-  word: string = "wordl";
-  blocks: any[] = [];
+  winningWord: string = "hands";
+  rows: any[] = [];
+//   tries: number[] = [1,2,3,4,5,6];
+//   letters: number[] = [1, 2, 3, 4, 5];
   submitCount: number;
   wordFilled: boolean;
+  currentIndex: number = 0;
   constructor() {
     this.submitCount = 0;
     this.wordFilled = false;
-    for (let i = 0; i <30; i++) {
-      this.blocks.push(new BlockComponent());
+    for (let i = 0; i < 6; i++) {
+      let row: BlockComponent[] = [];
+      for (let j = 0; j < 5; j++) {
+        row.push(new BlockComponent());
+      }
+      this.rows.push(row);
     }
+      window.addEventListener("keydown", this.onKeyPressEvent.bind(this));
   }
 
   ngOnInit(): void {  }
 
-  onKeypressEvent(event: any){
-     event.target.value = event.target.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
-     console.log(event.target.value);
-     if (this.wordFilled) {
-      if (this.submitCount == 0) {
-          console.log("5");
-
-      } else if (this.submitCount == 1) {
-          console.log("5");
-
-      } else if (this.submitCount == 2) {
-          console.log("5");
-
-      } else if (this.submitCount == 3) {
-          console.log("5");
-
-      } else if (this.submitCount == 4) {
-          console.log("5");
-
-      } else if (this.submitCount == 5) {
-          console.log("5");
+  onKeyPressEvent(event: any){
+    const letter: string = event.key;
+    if (letter == "Backspace") {
+      // clear
+      if (this.currentIndex > 0) {
+        this.rows[this.submitCount][this.currentIndex-1].clear();
+        this.currentIndex--;
       }
-     }
-//      this.letter = event.target.value;
-// set letter by replacing empty block with a new block with that letter
-// if backspace is pressed, replace block with new empty block
-
+    } else if (!/\W|\d/g.test(letter)) { // A-Z
+      // set block at that index
+      if (this.currentIndex < 5) {
+        this.rows[this.submitCount][this.currentIndex].letter = letter;
+        this.currentIndex++;
+      }
+    }
   }
+
   submitWord() {
-    this.submitCount+=1;
+  console.log("in");
+    if (this.submitCount < 6) {
+    for (let i = 0; i < this.rows[this.submitCount].length; i++) {
+     const letter = this.rows[this.submitCount][i];
+     console.log(letter);
+     if (letter.letter == this.winningWord[i]) {
+     // make sure using setters everywhere
+      letter.setState(LetterState.CORRECT);
+     } else if (this.winningWord.includes(letter.letter)) {
+      letter.setState(LetterState.PARTIAL);
+     } else {
+      letter.setState(LetterState.FALSE);
+     }
+    }
+    this.submitCount += 1;
+    }
   }
-
 
 }

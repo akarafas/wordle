@@ -1,4 +1,6 @@
 <div class="panel empty text-white border rounded blockSize text-center"
-     [ngClass]="{'bg-secondary': false, 'bg-dark': false, 'bg-warning': false, 'bg-success': true}"
-      (click)="true">
+     [ngClass]="{'bg-secondary': isEmpty(),
+      'bg-dark': isFalse(),
+      'bg-warning': isPartial(),
+      'bg-success': isCorrect()}">
   {{this.letter}}</div>
