@@ -7,7 +7,7 @@ import { LetterState } from  '../../Enums/LetterState';
 })
 export class BlockComponent implements OnInit {
   @Input() letter: string;
-  state: LetterState;
+  @Input() state: LetterState;
   constructor() {
     this.letter = "";
     this.state = LetterState.EMPTY;
@@ -15,12 +15,16 @@ export class BlockComponent implements OnInit {
 
   ngOnInit(): void {
   }
-/*   getBlock() {
-    return BlockComponent;
+
+  getState(): LetterState {
+//     console.log(this.state);
+    return this.state;
   }
-  setBlock(BlockComponent block) {
-    this.BlockComponent = block;
-  } */
+
+  getLetter(): string {
+    return this.letter;
+  }
+
   setLetter (_letter: string) {
     this.letter = _letter;
   }
@@ -29,33 +33,36 @@ export class BlockComponent implements OnInit {
   }
 
   clear () {
-    this.letter = "";
-    this.state = LetterState.EMPTY;
+    this.setLetter("");
+    this.setState(LetterState.EMPTY);
   }
+
   isCorrect() {
-    return this.state = LetterState.CORRECT;
+    return (this.getState() == LetterState.CORRECT);
   }
   isPartial() {
-    return this.state = LetterState.PARTIAL;
-  }
-  isFalse() {
-    return this.state = LetterState.FALSE;
+    return (this.getState() == LetterState.PARTIAL);
   }
   isEmpty() {
-    return this.state = LetterState.EMPTY;
+    return (this.getState() == LetterState.EMPTY);
   }
 
-  getStyle() {
-      if (this.state = LetterState.CORRECT) {
+  isFalse() {
+    return (this.getState() == LetterState.FALSE);
+  }
 
-      } else if (this.state = LetterState.PARTIAL) {
-
-      } else if (this.state = LetterState.FALSE) {
-
-      } else if (this.state = LetterState.EMPTY) {
-
+  getStyle(): string {
+      if (this.getState() == LetterState.CORRECT) {
+        console.log("hi");
+        return 'bg-success';
+      } else if (this.getState() == LetterState.PARTIAL) {
+        return 'bg-warning';
+      } else if (this.getState() == LetterState.FALSE) {
+        return 'bg-dark';
+      } else if (this.getState() == LetterState.EMPTY) {
+        return 'bg-secondary';
       }
-
+      return 'bg-danger';
   }
 
 }
