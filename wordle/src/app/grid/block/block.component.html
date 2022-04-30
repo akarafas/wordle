@@ -1,6 +1,7 @@
-<div class="panel empty text-white border rounded blockSize text-center {{ getStyle() }}">
-<!--  [ngClass]="{'bg-secondary': isEmpty(),-->
-<!--  'bg-dark': isFalse(),-->
-<!--  'bg-warning': isPartial(),-->
-<!--  'bg-success': isCorrect()}"-->
-  {{this.letter}}</div>
+<div class="panel empty text-white border rounded blockSize text-center"
+     [ngClass]="{'bg-secondary': isEmpty(),
+      'bg-dark': isFalse(),
+      'bg-warning': isPartial(),
+      'bg-success': isCorrect()}">
+  {{this.letter}}
+</div>

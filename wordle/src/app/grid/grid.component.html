@@ -1,8 +1,8 @@
 <div class="container center">
   <div *ngFor="let row of rows; let i = index" class="row" id="{{ i }}">
     <div *ngFor="let letter of rows[i]; let j = index" class="col" id="{{ j }}">
-      <app-block [letter]="letter.letter"></app-block>
+      <app-block [letter]="letter.letter" [state]="letter.state"></app-block>
     </div>
   </div>
 </div>
-<button type="button" class="btn btn-dark" (click)="submitWord()" [disabled]="this.currentIndex < 5">Submit</button>
+<button type="button" class="btn btn-dark" id="submitBtn" (click)="submitWord()" [disabled]="this.currentIndex < 5">Submit</button>

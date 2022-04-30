@@ -7,7 +7,7 @@ import { LetterState } from '../Enums/LetterState';
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit {
-  winningWord: string = "hands";
+  winningWord: string = "slime";
   rows: any[] = [];
   submitCount: number;
   wordFilled: boolean;
@@ -22,7 +22,7 @@ export class GridComponent implements OnInit {
       }
       this.rows.push(row);
     }
-      window.addEventListener("keydown", this.onKeyPressEvent.bind(this));
+     window.addEventListener("keydown", this.onKeyPressEvent.bind(this));
   }
 
   ngOnInit(): void {  }
@@ -36,7 +36,7 @@ export class GridComponent implements OnInit {
         this.currentIndex--;
       }
     } else if (letter == "Enter") {
-      this.submitWord();
+      if (this.currentIndex == 5) {this.submitWord();}
     } else if (!/\W|\d/g.test(letter)) {
       if (this.currentIndex < 5) {
         this.rows[this.submitCount][this.currentIndex].setLetter(letter);
@@ -47,21 +47,21 @@ export class GridComponent implements OnInit {
 
   submitWord() {
     if (this.submitCount < 6) {
-    for (let i = 0; i < this.rows[this.submitCount].length; i++) {
-     const letter = this.rows[this.submitCount][i];
-     if (letter.getLetter() == this.winningWord[i]) {
-     // make sure using setters everywhere
-      letter.setState(LetterState.CORRECT);
-     } else if (this.winningWord.includes(letter.getLetter())) {
-      letter.setState(LetterState.PARTIAL);
-     } else {
-      letter.setState(LetterState.FALSE);
-     }
-    console.log(letter);
-    }
+      for (let i = 0; i < this.rows[this.submitCount].length; i++) {
+       const letter = this.rows[this.submitCount][i];
+       if (letter.getLetter() == this.winningWord[i]) {
+        letter.setState(LetterState.CORRECT);
+       } else if (this.winningWord.includes(letter.getLetter())) {
+        letter.setState(LetterState.PARTIAL);
+       } else {
+        letter.setState(LetterState.FALSE);
+       }
+      console.log(letter);
+      }
     this.submitCount += 1;
     this.currentIndex = 0;
     }
   }
+
 
 }

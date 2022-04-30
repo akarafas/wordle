@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LetterState } from  '../../Enums/LetterState';
+
 @Component({
   selector: 'app-block',
   templateUrl: './block.component.html',
@@ -17,7 +18,6 @@ export class BlockComponent implements OnInit {
   }
 
   getState(): LetterState {
-//     console.log(this.state);
     return this.state;
   }
 
