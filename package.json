@@ -1,0 +1,26 @@
+{
+  "name": "wordle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akarafas/wordle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akarafas/wordle/issues"
+  },
+  "homepage": "https://github.com/akarafas/wordle#readme",
+  "dependencies": {
+    "canvas-confetti": "^1.5.1"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.4.2",
+    "@types/random-words": "^1.1.2"
+  }
+}

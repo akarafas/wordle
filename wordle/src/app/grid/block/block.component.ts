@@ -51,18 +51,4 @@ export class BlockComponent implements OnInit {
     return (this.getState() == LetterState.FALSE);
   }
 
-  getStyle(): string {
-      if (this.getState() == LetterState.CORRECT) {
-        console.log("hi");
-        return 'bg-success';
-      } else if (this.getState() == LetterState.PARTIAL) {
-        return 'bg-warning';
-      } else if (this.getState() == LetterState.FALSE) {
-        return 'bg-dark';
-      } else if (this.getState() == LetterState.EMPTY) {
-        return 'bg-secondary';
-      }
-      return 'bg-danger';
-  }
-
 }
