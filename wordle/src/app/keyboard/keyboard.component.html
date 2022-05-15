@@ -1,0 +1,17 @@
+<div class="container justify-content-center">
+  <div class="row justify-content-center">
+    <div *ngFor="let letter of keyboard[0]; let j = index" class="colz">
+      <div class="panel border border-dark rounded text-center blockSize">{{ keyboard[0][j] }}</div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div *ngFor="let letter of keyboard[1]; let j = index" class="colz">
+      <div class="panel border border-dark rounded text-center blockSize">{{ keyboard[1][j] }}</div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div *ngFor="let letter of keyboard[2]; let j = index" class="colz">
+      <div class="panel border border-dark rounded text-center blockSize">{{ keyboard[2][j] }}</div>
+    </div>
+  </div>
+</div>

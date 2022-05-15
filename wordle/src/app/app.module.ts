@@ -7,13 +7,15 @@ import { GridComponent } from './grid/grid.component';
 import { BlockComponent } from './grid/block/block.component';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { KeyboardComponent } from './keyboard/keyboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GridComponent,
     BlockComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    KeyboardComponent
   ],
   imports: [
     BrowserModule,
