@@ -1,14 +1,16 @@
-<h1 class="title h1 text-center" style="padding-top: 15px; padding-bottom:15px;">Wordle</h1>
-<div class="container justify-content-center" id="main-body">
-  <div *ngFor="let row of rows; let i = index" class="row" id="{{ i }}">
-    <div *ngFor="let letter of rows[i]; let j = index" class="col" id="{{ j }}">
-      <app-block [letter]="letter.letter" [state]="letter.state"></app-block>
+<div id="canvas">
+  <h1 class="title h1 text-center" style="padding-top: 15px; padding-bottom:15px;">Wordle</h1>
+  <div class="container justify-content-center" id="main-body">
+    <div *ngFor="let row of rows; let i = index" class="row" id="{{ i }}">
+      <div *ngFor="let letter of rows[i]; let j = index" class="col" id="{{ j }}">
+        <app-block [letter]="letter.letter" [state]="letter.state"></app-block>
+      </div>
     </div>
   </div>
-</div>
-<app-keyboard></app-keyboard>
-<div>
-  <button type="button" class="btn" [ngClass]="{'btn-dark':!canSubmit(), 'btn-success': canSubmit()}"
-          id="submitBtn" (click)="submitWord()" [disabled]="this.currentIndex < 5">Submit</button>
-  <button type="button" class="btn btn-warning p-sm" id="restart" (click)="restart()">Restart</button>
+  <app-keyboard></app-keyboard>
+  <div>
+    <button type="button" class="btn" [ngClass]="{'btn-dark':!canSubmit(), 'btn-success': canSubmit()}"
+            id="submitBtn" (click)="submitWord()" [disabled]="this.currentIndex < 5">Submit</button>
+    <button type="button" class="btn btn-warning p-sm" id="restart" (click)="restart()">Restart</button>
+  </div>
 </div>

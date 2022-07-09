@@ -23,3 +23,11 @@ canvas {
 #main-body {
 padding-left: 85px;
 }
+
+#canvas {
+  position: fixed;
+  bottom:   0;
+  left:     0;
+  height:   100%;
+  width:    100%;
+}

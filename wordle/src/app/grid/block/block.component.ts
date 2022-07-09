@@ -26,6 +26,7 @@ export class BlockComponent implements OnInit {
   }
 
   setLetter (_letter: string) {
+    console.log("set letter with " + _letter);
     this.letter = _letter;
   }
   setState (_state: LetterState) {
